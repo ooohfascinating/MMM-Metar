@@ -1,0 +1,17 @@
+.altRow {
+    background-color: hsl(0,0%, 5%);
+}
+
+.metar {
+    text-align: left;
+    text-indent: -1em;
+    padding-left: 1.1em;
+}
+
+.metar.borderBottom {
+    border-bottom: 1px solid #222;
+}
+
+.metarHalf {
+    max-width: 40vw;
+}
