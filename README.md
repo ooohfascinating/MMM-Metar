@@ -27,6 +27,7 @@ var config = {
       position: "top_right",
       config: {
         apiKey: "<api-key-here>",
+        airports: [ "KSFO","PAO","HAF","JFK" ],
       },
     },
   ],
