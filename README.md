@@ -17,7 +17,7 @@ git clone https://github.com/calonmerc/MMM-Metar.git
 
 ### Update your config.js file
 
-Add a configuration block to the modules array in the `~/MagicMirror/config/config.js` file and define your [AVWX.rest (register for an account)](https://account.avwx.rest/getting-started) API Key:
+Add a configuration block to the modules array in the `~/MagicMirror/config/config.js` file 
 
 ```js
 var config = {
@@ -26,7 +26,6 @@ var config = {
       module: "MMM-Metar",
       position: "top_right",
       config: {
-        apiKey: "<api-key-here>",
         airports: [ "KSFO","PAO","HAF","JFK" ],
       },
     },
@@ -34,4 +33,15 @@ var config = {
 };
 ```
 
-This is the minimal config setup, you find more params in the [`default` section of `MMM-Metar.js`](../-/blob/master/MMM-Metar.js#L7).
+full config
+```js
+{
+airports: [ "KSFO","PAO","HAF","JFK" ],
+      updateInterval: 10 * 60 * 1000, //every 10 minutes
+      initialLoadDelay: 0, // 0 seconds delay
+      listClass: "metarsList",
+      alternateBackgrounds: true,
+      borderBottom: true,
+      warnLength: 10,
+}
+```
