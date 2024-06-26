@@ -15,6 +15,10 @@ cd ~/MagicMirror/modules
 git clone https://github.com/ooohfascinating/MMM-Metar.git
 ```
 
+Code was forked from [calonmerc/MMM-Metar](github.com/calonmerc/MMM-Metar) 
+all props should go to them.
+
+
 ### Update your config.js file
 
 Add a configuration block to the modules array in the `~/MagicMirror/config/config.js` file 
