@@ -12,7 +12,7 @@ Assuming `~/MagicMirror` is the directory where you installed MagicMirror².
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/calonmerc/MMM-Metar.git
+git clone https://github.com/ooohfascinating/MMM-Metar.git
 ```
 
 ### Update your config.js file
