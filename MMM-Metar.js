@@ -1,11 +1,9 @@
-// Module to display METARs with no formatting, fetching from `https://avwx.rest/` API for consistency and international use.
+// Module to display METARs with no formatting, fetching from `https://aviationweather.gov/cgi-bin/data/metar.php/` API for consistency and international use.
 
-//https://avwx.rest/api/metar/{airport}?token={token}&filter=sanitized
 
 Module.register("MMM-Metar", {
     // Default module config.
     defaults: {
-      apiKey: "",
       airports: [ "KSFO","PAO","HAF","JFK" ],
       updateInterval: 10 * 60 * 1000, //every 10 minutes
       initialLoadDelay: 0, // 0 seconds delay
@@ -72,10 +70,11 @@ Module.register("MMM-Metar", {
         this.config.airports.forEach((airport)=> {
             var updated = false;
             Log.info(this.data.name + ": Fetching " + airport)
-            this.fetchData("https://avwx.rest/api/metar/" + airport + "?token=" + this.config.apiKey +" &filter=sanitized")
+            this.fetchData(`https://aviationweather.gov/cgi-bin/data/metar.php?ids=${airport}&format=json`)
                 .then((data) => {
-                    if(data.sanitized !== this.metars[airport]) {
-                        this.metars[airport] = data.sanitized;
+                    
+                    if(data[0].rawOb !== this.metars[airport]) {
+                        this.metars[airport] = data[0].rawOb;
                         updated = true
                     }
                     //this.updateDom(300);
@@ -93,6 +92,6 @@ Module.register("MMM-Metar", {
     },
 
     async fetchData(url) {
-        return performWebRequest(url);
+        return performWebRequest(url,type = "json",true);
     }
   });
